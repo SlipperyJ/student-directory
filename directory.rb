@@ -11,6 +11,18 @@ def input_students
   students
 end
 
+def letter_filter(students, letter)
+  students = students.select do |student, letter|
+    student[:name].upcase[0] == letter.upcase[0]
+  end
+end
+
+def name_restrictions(students)
+  students.select! do |student|
+    student[:name].length < 12
+  end
+end
+
 def print_header
   puts "The students of Villains Academy"
   puts "-------------"
@@ -19,7 +31,6 @@ end
 def print(students)
   puts "enter a letter to filter by intial"
   initial = gets.chomp!.upcase
-
   students.each_with_index do |student, index|
     if student[:name].upcase[0] == initial && student[:name].length < 12
       puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
