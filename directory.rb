@@ -1,15 +1,30 @@
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
-  students = []
   name = gets.chomp
+  questions(name)
+end
+
+def questions(name)
+  students = []
+
   while !name.empty? do
-    students << {name: name, cohort: :november}
+    puts "Please enter a hobby"
+    hobby = gets.chomp
+    puts "Please enter country of birth"
+    birth_country = gets.chomp
+    puts "Please enter height"
+    height = gets.chomp
+    students << {name: name, cohort: :november, hobby: hobby, birth_country: birth_country, height: height}
     puts "Now we have #{students.count} students"
+
+    puts "Please enter another name"
+    puts "To finish, just hit return twice"
     name = gets.chomp
   end
   students
 end
+
 
 def letter_filter(students, letter)
   students = students.select do |student, letter|
@@ -32,7 +47,6 @@ def print(students)
   puts "enter a letter to filter by intial, or leave blank for no filter"
   @letter = gets.chomp!
   students = letter_filter(students, @letter)
-
 
   index = 0
   while index < students.length do
