@@ -33,7 +33,6 @@ def print(students)
   initial = gets.chomp!.upcase
   students.each_with_index do |student, index|
       puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
   end
 end
 
