@@ -17,8 +17,13 @@ def print_header
 end
 
 def print(students)
+  puts "enter a letter to filter by intial"
+  initial = gets.chomp!.upcase
+
   students.each_with_index do |student, index|
-    puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+    if student[:name].upcase[0] == initial
+      puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 
