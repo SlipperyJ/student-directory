@@ -13,7 +13,7 @@ end
 
 def letter_filter(students, letter)
   students = students.select do |student, letter|
-    student[:name].upcase[0] == letter.upcase[0]
+    student[:name].upcase[0] == @letter.upcase[0]
   end
 end
 
@@ -29,10 +29,15 @@ def print_header
 end
 
 def print(students)
-  puts "enter a letter to filter by intial"
-  initial = gets.chomp!.upcase
-  students.each_with_index do |student, index|
-      puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+  puts "enter a letter to filter by intial, or leave blank for no filter"
+  @letter = gets.chomp!
+  students = letter_filter(students, @letter)
+
+
+  index = 0
+  while index < students.length do
+      puts "#{index}. #{students[index][:name]} (#{students[index][:cohort]} cohort)"
+      index += 1
   end
 end
 
