@@ -15,7 +15,8 @@ def questions(name)
     birth_country = gets.chomp
     puts "Please enter height"
     height = gets.chomp
-    students << {name: name, cohort: :november, hobby: hobby, birth_country: birth_country, height: height}
+    students << {name: name, cohort: :november, hobby: hobby, birth_country:
+                 birth_country, height: height}
     puts "Now we have #{students.count} students"
 
     puts "Please enter another name"
@@ -50,7 +51,7 @@ def print(students)
 
   index = 0
   while index < students.length do
-      puts "#{index}. #{students[index][:name]} (#{students[index][:cohort]} cohort)"
+      puts "#{index}. #{students[index][:name]} #{students[index][:hobby]} #{students[index][:birth_country]} #{students[index][:height]} (#{students[index][:cohort]} cohort)"
       index += 1
   end
 end
