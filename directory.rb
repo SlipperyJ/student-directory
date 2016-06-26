@@ -21,7 +21,7 @@ def print(students)
   initial = gets.chomp!.upcase
 
   students.each_with_index do |student, index|
-    if student[:name].upcase[0] == initial
+    if student[:name].upcase[0] == initial && student[:name].length < 12
       puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
